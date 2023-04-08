@@ -85,7 +85,7 @@ const Cart = (props: { RefreshMyCartDis: boolean, setRefreshMyCartDis: (newValue
                     <span className='quan'>{i.quantity}</span>
                     <button className='AddRemoveBTTN' onClick={() => AddRemoveBTTN(i, 1)}>+</button>       {/*in Cart.jsx CreateUpdateCentralCart(mycart) is activated  */}
                   </p>
-                  <div>Total Price: &#8362; {i.quantity * i.price}</div>
+                  <div>Total Price: &#8362; {(i.quantity * i.price).toLocaleString()}</div>
                 </div>
 
 

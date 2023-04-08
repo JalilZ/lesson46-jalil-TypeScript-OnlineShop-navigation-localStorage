@@ -56,7 +56,7 @@ const Admin = () => {
 
                     <option value="">Choose a category</option>
                     <option value="dairy">Dairy</option>
-                    <option value="meat">Meat</option>
+                    <option value="meats">Meat</option>
                     <option value="snacks">Snacks</option>
                 </select>
 
