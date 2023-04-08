@@ -1,0 +1,86 @@
+.CartBar {
+  position: absolute;
+  overflow-y: auto;
+  /*makes it that we scroll*/
+  top: 250px;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.CartItem{
+  max-width: 14rem;
+  height: 150px; /* set a fixed height for each CartItem */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* this will space out the elements within each CartItem */
+  margin-bottom: 1rem;
+}
+
+
+/* Styling for the scrollbar */
+.CartBar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.CartBar::-webkit-scrollbar-track {
+  background-color: #f9f9f9;
+}
+
+.CartBar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.CartBar::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+
+
+/* styling for items inside the scrollbar */
+.AddRemoveBTTN {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+}
+
+.AddRemoveBTTN:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer;
+}
+
+.AddRemoveBTTN {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+}
+
+.quan {
+  background-color: transparent;
+  min-width: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+
+}
