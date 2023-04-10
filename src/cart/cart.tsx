@@ -19,7 +19,7 @@ const Cart = (props: { RefreshMyCartDis: boolean, setRefreshMyCartDis: (newValue
 
 
 
-  //const [CentralCart, SetCentralCart] = useState<prodType[]>([]) //to explicitly specify the type of CentralCart as an array of prodType
+  //so when we use the AddRemoveBTTN, the cart is rendered again and the subtotal and total quantity is updated
   useEffect(() => {
     let tempCart = localStorage.getItem('My Cart') // this will return null if there is still no 'My Cart' in storage
     if (tempCart) {
@@ -27,48 +27,44 @@ const Cart = (props: { RefreshMyCartDis: boolean, setRefreshMyCartDis: (newValue
     }
   }, [props.RefreshMyCartDis]);
 
+  const AddRemoveBTTN = (i: prodType, q: number) => {
+    i.quantity += q
+    if (i.quantity === 0) {
+      //props.setMycart(props.Mycart.filter(item => item.id !== i.id)); // no need for this becuase Mycart will be rendered according to localstorage each time RefreshMyCardDis is flagged
+      localStorage.setItem('My Cart', JSON.stringify(props.Mycart.filter(item => item.id !== i.id)));
+      props.setRefreshMyCartDis(!props.RefreshMyCartDis);
+    }
+    else {
+      localStorage.setItem('My Cart', JSON.stringify(props.Mycart));
+      props.setRefreshMyCartDis(!props.RefreshMyCartDis);
+    }
+
+  }
 
   const [TOTALP, setTOTALP] = useState(0)
   useEffect(() => {
     let temp = 0
     props.Mycart.forEach(element => {
-      temp = temp + (element.quantity * element.price)
+      temp = temp + (element.quantity * element.price);
     });
     setTOTALP(temp)
-  }, [props.Mycart])
+  }, [props.Mycart]) // props.RefreshMyCartDis won't work when components first mounts, props.Mycart works because Mycart is rendered when component is mount so this useeffect will run
 
   const [TOTALQ, setTOTALQ] = useState(0)
   useEffect(() => {
-    let temp = 0
+    let temp = 0;
     props.Mycart.forEach(element => {
-      temp += element.quantity
+      temp += element.quantity;
     });
-    setTOTALQ(temp)
+    setTOTALQ(temp);
   }, [props.Mycart])
-
-
-  const AddRemoveBTTN = (i: prodType, q: number) => {
-    i.quantity += q
-    if (i.quantity === 0) {
-
-      props.setMycart(props.Mycart.filter(item => item.id !== i.id))
-      localStorage.setItem('My Cart', JSON.stringify(props.Mycart.filter(item => item.id !== i.id)))
-      props.setRefreshMyCartDis(!props.RefreshMyCartDis)
-    }
-    else {
-      localStorage.setItem('My Cart', JSON.stringify(props.Mycart))
-      props.setRefreshMyCartDis(!props.RefreshMyCartDis)
-    }
-
-  }
-
 
 
   return (
     <div className='CartBar'>
       {/* The toLocaleString() method converts a number to a string with a language-sensitive representation of the number */}
       <p style={{ textAlign: 'center' }}><b>My Cart &#128722;</b></p>
-      <p style={{ textAlign: 'center' }}><b>Quantity: {TOTALQ.toLocaleString()}</b></p>
+      <p style={{ textAlign: 'center' }}><b>Total Quantity: {TOTALQ.toLocaleString()}</b></p>
       <p style={{ textAlign: 'center' }}><b>Subtotal: &#8362; {TOTALP.toLocaleString()}</b></p>
       {props.Mycart.map((i: prodType) => {
         return (

@@ -1,12 +1,12 @@
 {
   "superProds": [
     {
+      "id": 1,
       "prod": "Milk",
       "category": "dairy",
       "desc": "1L Fortified 3%",
       "price": 20,
-      "productImage": "milkp.jpg",
-      "id": 1
+      "productImage": "milkp.jpg"
     },
     {
       "id": 2,
@@ -30,7 +30,7 @@
       "category": "meats",
       "desc": "1kg USDA Grade A",
       "price": 400,
-      "productImage": "meatp.webp"
+      "productImage": "meatp.jpg"
     },
     {
       "id": 5,

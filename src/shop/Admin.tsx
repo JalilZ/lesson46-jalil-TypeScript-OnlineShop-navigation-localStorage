@@ -72,7 +72,7 @@ const Admin = () => {
             <div className='Menu'>
                 {superProds.map((i) =>
                     <div key={i.id}>
-                        <div className='card border-dark mb-3' style={{ maxWidth: '18rem' }}>
+                        <div className='card border-dark mb-3' style={{ width: '18rem' }}>
                             <div className='card-header'><b>{i.prod}</b></div>
                             <div className='card-body'></div>
                             <h5 className='card-title'>{i.desc}</h5>
